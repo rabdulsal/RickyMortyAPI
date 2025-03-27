@@ -33,6 +33,7 @@
 		3A6E4C272D957EEE00E95E05 /* Exceptions for "RickyMortyAPI" folder in "RickyMortyAPITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Models/CharacterItem.swift,
 				Services/NetworkingService.swift,
 				ViewModels/CharactersViewModel.swift,
 			);

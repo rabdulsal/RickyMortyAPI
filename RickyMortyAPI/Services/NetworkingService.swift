@@ -13,9 +13,9 @@ enum NetworkError: Error {
 }
 
 
-struct NetworkingService {
+struct NetworkingService<T: Codable> {
     
-    func searchCharacters(for name: String) async throws -> Result<Data,Error> {
+    func searchCharacters(for name: String) async throws -> Result<CharacterData,Error> {
                  
         let urlString = "https://rickandmortyapi.com/api/character/?name=\(name)"
              
@@ -28,9 +28,8 @@ struct NetworkingService {
                  print("Failed Response")
                 throw NetworkError.failedResponse
              }
-             
-             print("Data \(String(data: data, encoding: .utf8))")
-             return .success(data)
+             let charData = try JSONDecoder().decode(CharacterData.self, from: data)
+             return .success(charData)
          } catch {
              
              throw error

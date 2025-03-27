@@ -14,9 +14,9 @@ enum DataFetchState {
 @MainActor
 class CharactersViewModel: ObservableObject {
     
-    @Published var charData = "No Data"
+    @Published var characters = [CharacterItem]()
     @Published var fetchState: DataFetchState = .idle
-    let networkService = NetworkingService()
+    let networkService = NetworkingService<CharacterData>()
     
     func searchCharacters(for searchString: String) {
         guard !searchString.isEmpty else {
@@ -27,11 +27,11 @@ class CharactersViewModel: ObservableObject {
         
         Task {
             do {
-                let result = try await networkService.searchCharacters(for: searchString)
+                let result = try await self.networkService.searchCharacters(for: searchString)
                 switch result {
-                case .success(let data):
+                case .success(let charData):
                     fetchState = .fetched
-                    charData = String(data: data, encoding: .utf8) ?? "No Data"
+                    characters = charData.results
                 case .failure(let error):
                     fetchState = .fetchFailed(error.localizedDescription)
                 }

@@ -15,10 +15,10 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text(charsViewModel.charData)
+            ForEach(charsViewModel.characters) { char in
+                Text(char.name)
+            }
+            
         }
         .padding()
         .onAppear {
