@@ -24,8 +24,7 @@ struct CharacterDetailsView: View {
                             Color.gray
                         }
                     }
-                    .frame(maxHeight: 300)
-                    .padding(.bottom, 50)
+                    .padding(.bottom, 20)
                     
                     VStack(alignment: .leading) {
                         HStack {
