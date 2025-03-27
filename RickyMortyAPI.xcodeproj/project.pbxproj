@@ -35,6 +35,7 @@
 			membershipExceptions = (
 				Models/CharacterItem.swift,
 				Services/NetworkingService.swift,
+				"Utils/DateFormatter+RickyMorty.swift",
 				ViewModels/CharactersViewModel.swift,
 				Views/CharacterDetailsView.swift,
 				Views/SearchView.swift,

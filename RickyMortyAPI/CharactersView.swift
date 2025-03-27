@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  CharactersView.swift
 //  RickyMortyAPI
 //
 //  Created by Rashad Abdul-Salam on 3/27/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CharactersView: View {
     
     
     @StateObject private var charsViewModel = CharactersViewModel()
@@ -26,7 +26,7 @@ struct ContentView: View {
                 
                 switch charsViewModel.fetchState {
                 case .idle:
-                    Text("Search for a R&M Character")
+                    Text("Search for a Rick & Morty Character")
                         .font(.largeTitle)
                 case .isFetching:
                     ProgressView("Fetching Character....")
@@ -62,13 +62,10 @@ struct ContentView: View {
                 Spacer()
             }
             .padding()
-//            .onAppear {
-//                charsViewModel.searchCharacters(for: "Rick")
-//            }
         }
     }
 }
 
 #Preview {
-    ContentView()
+    CharactersView()
 }

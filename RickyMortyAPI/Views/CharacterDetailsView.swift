@@ -28,7 +28,7 @@ struct CharacterDetailsView: View {
                     .padding(.bottom, 50)
                     
                     VStack(alignment: .leading) {
-                        HStack(alignment: .top) {
+                        HStack {
                             Text(character.name)
                                 .font(.headline)
                             
@@ -39,6 +39,8 @@ struct CharacterDetailsView: View {
                             // Text element that displays the status.
                             Text("(\(character.status))")
                                 .font(.subheadline)
+                            
+                            Spacer()
                         }
                         
                         // Text element that displays the origin.
@@ -46,15 +48,16 @@ struct CharacterDetailsView: View {
                             .font(.subheadline)
                         
                          //Text element that displays the type only if available.
-                        if let type = character.type {
+                        if let type = character.type, !type.isEmpty {
                             Text("Type: \(type)")
                                 .font(.subheadline)
                         }
                         
                         // TODO: Text element that displays a formatted version of the created date.
-                        Text("Created: \(character.created)")
+                        Text("Created: \(DateFormatter.formattedPublishDate(character.created))")
                             .font(.subheadline)
                     }
+                    .padding(.horizontal, 24)
                 }
                 
             }
