@@ -29,9 +29,23 @@
 		3A6E4BFD2D957C9E00E95E05 /* RickyMortyAPIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickyMortyAPIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3A6E4C272D957EEE00E95E05 /* Exceptions for "RickyMortyAPI" folder in "RickyMortyAPITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Services/NetworkingService.swift,
+				ViewModels/CharactersViewModel.swift,
+			);
+			target = 3A6E4BF22D957C9D00E95E05 /* RickyMortyAPITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		3A6E4BE52D957C9A00E95E05 /* RickyMortyAPI */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				3A6E4C272D957EEE00E95E05 /* Exceptions for "RickyMortyAPI" folder in "RickyMortyAPITests" target */,
+			);
 			path = RickyMortyAPI;
 			sourceTree = "<group>";
 		};
