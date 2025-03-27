@@ -36,6 +36,7 @@
 				Models/CharacterItem.swift,
 				Services/NetworkingService.swift,
 				ViewModels/CharactersViewModel.swift,
+				Views/CharacterDetailsView.swift,
 			);
 			target = 3A6E4BF22D957C9D00E95E05 /* RickyMortyAPITests */;
 		};

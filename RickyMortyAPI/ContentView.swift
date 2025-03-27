@@ -14,15 +14,35 @@ struct ContentView: View {
     
     
     var body: some View {
-        VStack {
-            ForEach(charsViewModel.characters) { char in
-                Text(char.name)
+        
+        NavigationStack {
+            ScrollView {
+                ForEach(charsViewModel.characters) { char in
+                    NavigationLink(destination: CharacterDetailsView(character: char)) {
+                        LazyVStack(alignment: .leading, spacing: 8) {
+                            HStack {
+                                AsyncImage(url: URL(string: char.image)) { obj in
+                                    if let image = obj.image {
+                                        image
+                                            .resizable()
+                                            .scaledToFit()
+                                    } else {
+                                        Color.gray
+                                    }
+                                }
+                            }
+                            
+                            Divider()
+                        }
+                    }
+                    .padding(.bottom, 10)
+                }
+                
             }
-            
-        }
-        .padding()
-        .onAppear {
-            charsViewModel.searchCharacters(for: "Rick")
+            .padding()
+            .onAppear {
+                charsViewModel.searchCharacters(for: "Rick")
+            }
         }
     }
 }

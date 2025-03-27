@@ -24,10 +24,7 @@ struct NetworkingService<T: Codable> {
          do {
              let (data, response) = try await URLSession.shared.data(for: URLRequest(url: url))
              
-             guard let res = response as? HTTPURLResponse, (200...299).contains(res.statusCode) else {
-                 print("Failed Response")
-                throw NetworkError.failedResponse
-             }
+             guard let res = response as? HTTPURLResponse, (200...299).contains(res.statusCode) else { throw NetworkError.failedResponse }
              let charData = try JSONDecoder().decode(CharacterData.self, from: data)
              return .success(charData)
          } catch {
